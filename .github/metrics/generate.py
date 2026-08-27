@@ -108,6 +108,13 @@ def render(m):
 
 if __name__ == "__main__":
     metrics = collect()
+    # A token that cannot see the account's repositories (CI's default
+    # GITHUB_TOKEN, for one) yields a card reading 0 repos / 0 commits and
+    # silently replaces a good one. Refuse to write that.
+    if metrics["repos"] < 2 or metrics["commits"] < 1:
+        raise SystemExit(
+            f"refusing to write metrics.svg: token sees only {metrics['repos']} "
+            f"repo(s) / {metrics['commits']} commit(s) — needs a PAT with repo scope")
     with open("metrics.svg", "w") as f:
         f.write(render(metrics))
     print({k: v for k, v in metrics.items() if k != "langs"})
