@@ -13,19 +13,23 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    # A PAT that can read private repos. Without it the card would only count
+    # public ones, which is the whole problem it exists to fix — so every step
+    # below is skipped rather than writing a wrong card.
+    env:
+      METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
     steps:
       - uses: actions/checkout@v4
+        if: env.METRICS_TOKEN != ''
 
-      # METRICS_TOKEN is a PAT that can read private repos — without it the card
-      # would only count public ones, which is the whole problem it exists to fix.
       - name: Regenerate metrics.svg
-        if: ${{ secrets.METRICS_TOKEN != '' }}
+        if: env.METRICS_TOKEN != ''
         env:
-          GH_TOKEN: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.METRICS_TOKEN }}
         run: python3 .github/metrics/generate.py
 
       - name: Commit if changed
-        if: ${{ secrets.METRICS_TOKEN != '' }}
+        if: env.METRICS_TOKEN != ''
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

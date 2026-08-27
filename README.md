@@ -70,5 +70,12 @@ An open-source network uniting Uzbek engineers worldwide — Telegram Mini App +
 </p>
 
 <p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/randomuzbek/randomuzbek/output/snake-dark.svg">
+    <img src="https://raw.githubusercontent.com/randomuzbek/randomuzbek/output/snake-light.svg" width="92%" alt="snake eating my contributions">
+  </picture>
+</p>
+
+<p align="center">
   <sub>Istanbul &nbsp;·&nbsp; EN &nbsp;·&nbsp; TR &nbsp;·&nbsp; UZ &nbsp;·&nbsp; RU</sub>
 </p>
