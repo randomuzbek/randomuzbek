@@ -1,0 +1,32 @@
+name: metrics
+
+on:
+  schedule:
+    - cron: "0 4 * * *"
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths: [".github/metrics/generate.py", ".github/workflows/metrics.yml"]
+
+jobs:
+  metrics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      # METRICS_TOKEN is a PAT that can read private repos — without it the card
+      # would only count public ones, which is the whole problem it exists to fix.
+      - name: Regenerate metrics.svg
+        env:
+          GH_TOKEN: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
+        run: python3 .github/metrics/generate.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add metrics.svg
+          git diff --staged --quiet || git commit -m "metrics: refresh"
+          git push
