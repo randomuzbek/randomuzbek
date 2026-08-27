@@ -57,17 +57,12 @@ An open-source network uniting Uzbek engineers worldwide — Telegram Mini App +
 <h3 align="center">Metrics</h3>
 
 <p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=randomuzbek&theme=github_dark" width="82%">
+  <img src="https://raw.githubusercontent.com/randomuzbek/randomuzbek/master/metrics.svg" width="88%" alt="metrics across all repositories, private included">
 </p>
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=randomuzbek&theme=tokyonight&hide_border=true&background=0D1117&ring=1F6FEB&fire=6E56CF&currStreakLabel=1F6FEB" width="49%">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=randomuzbek&theme=github_dark" width="42%">
-</p>
-
-<p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=randomuzbek&theme=github_dark" width="46%">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=randomuzbek&theme=github_dark" width="46%">
+  <img src="https://streak-stats.demolab.com?user=randomuzbek&theme=tokyonight&hide_border=true&background=0D1117&ring=1F6FEB&fire=6E56CF&currStreakLabel=1F6FEB" width="47%">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=randomuzbek&theme=github_dark&utcOffset=3" width="40%">
 </p>
 
 <p align="center">
